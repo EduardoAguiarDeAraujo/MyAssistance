@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+
+    <h1 id="demo"></h1>
+    
+</body>
+</html>
+
+
+<script>
+    console.log("Hello World");
+
+    const cep = '06186010';
+    fetch(`https://viacep.com.br/ws/${cep}/json`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+
+    const text = '{"name":"John", "age":"function () {return 30;}", "city":"New York"}';
+    const obj = JSON.parse(text);
+    obj.age = eval("(" + obj.age + ")");
+
+    document.getElementById("demo").innerHTML = obj.name + ", " + obj.age();
+</script>

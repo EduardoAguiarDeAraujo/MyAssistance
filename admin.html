@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistência Técnica :: Login</title>
+
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- Icons Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Fonte Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <!-- Minha CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="p-4 bg-primary text-light mb-5 d-flex justify-content-between">
+        <div>
+            <h3><a href="index.html" class="text-light text-decoration-none"><i class="bi bi-motherboard me-2"></i>MyAssist</a></h3>
+            <h5>Laboratório Geral</h5>
+        </div>
+        <div class="d-flex align-items-center">
+            <figure class="photo">
+                <img src="/images/user.png" alt="foto do funcionário logado">
+            </figure>
+            <div class="employee-data">
+                <h5>Olá Fulano</h5>
+                <h6>Seja bem-vindo - <a href="./index.html" class="text-light">Sair</a></h6>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- gravar dador -->
+        <section class="border border-1 rouded-1 my-5 p-4">
+            <h2>Cadastrar Equipamento</h2>
+            <form name="cadastrar" id="cadastrar" method="POST" action="">
+                <div class="row mb-3">
+                    <div class="col-md-4 my-3">
+                        <label for="proprietario" class="form-label">Proprietário</label>
+                        <input type="text" id="proprietario" name="proprietario" class="form-control" placeholder="Ex: Jimmy Page" maxlength="50" required>
+                    </div>
+                    <div class="col-md-4 my-3">
+                        <label for="equipamento" class="form-label">Tipo de Equipamento</label>
+                        <select name="equipamento" id="equipamento" class="form-select">
+                            <option value="" disabled selected>Selecione o equipamento</option>
+                            <option value="1">Equipamento 1</option>
+                            <option value="2">Equipamento 2</option>
+                            <option value="3">Equipamento 3</option>
+                            <option value="4">Equipamento 4</option>
+                            <option value="5">Equipamento 5</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 my-3">
+                        <label for="dataEntrada" class="form-label">Entrada no Laboratório</label>
+                        <input type="datetime-local" id="dataEntrada" name="dataEntrada" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-12 my-3">
+                        <label for="defeito" class="form-label">Defeito</label>
+                        <textarea name="defeito" id="defeito" class="form-control" placeholder="Ex: O defeito apresentado..." required></textarea>
+                    </div>
+
+                    <div class="col-md-6 my-3">
+                        <label for="previsaoEntrega" class="form-label">Previsão Entrega</label>
+                        <input type="datetime-local" id="previsaoEntrega" name="previsaoEntrega" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 my-3">
+                        <label for="status" class="form-label">Status do conserto</label>
+                        <select name="status" id="status" class="form-select">
+                            <option value="" disabled selected>Selecione o status</option>
+                            <option value="1">Aguardando aprovação</option>
+                            <option value="2">Aguardando orçamento</option>
+                            <option value="3">Em conserto</option>
+                            <option value="4">Finalizado</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-12 my-3">
+                        <label for="observacoes" class="form-label">Observações</label>
+                        <textarea name="observacoes" id="observacoes" class="form-control" placeholder="Ex: O equipamento..." required></textarea>
+                    </div>
+
+                    <div class="col-md-12 d-flex justify-content-end my-3">
+                        <button type="submit" class="btn btn-primary">Cadastrar Equipamento</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- fim gravar dador -->
+
+        <section class="border border-1 rounded-1 my-5 p-4">
+            <h2>Realizar Busca</h2>
+            <form name="buscar" id="buscar" method="POST" action="" class="mb-5">
+                <div class="my-2 d-flex">
+                    <input type="search" name="text-buscar" id="text-buscar" placeholder="Buscar aparelho" class="form-control py-2 me-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Pesquisar</button>
+                </div>
+            </form>
+
+            <h2>Resultato da Busca</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="align-top">
+                        <tr>
+                            <th>Código</th>
+                            <th>Proprietário</th>
+                            <th>Entrada Lab</th>
+                            <th>Defeito</th>
+                            <th>Previsão de Entrega</th>
+                            <th>Status</th>
+                            <th>Observações</th>
+                            <th>Operações do Sistema</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Jimmy Page</td>
+                            <td>18/05/2023</td>
+                            <td>Fio com mal contato</td>
+                            <td>31/05/2023</td>
+                            <td>Em conserto</td>
+                            <td>Orçamento aprovado</td>
+                            <td><a href="">Alterar</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Robert Plant</td>
+                            <td>18/05/2023</td>
+                            <td>Fio com mal contato</td>
+                            <td>31/05/2023</td>
+                            <td>Em conserto</td>
+                            <td>Orçamento aprovado</td>
+                            <td><a href="">Alterar</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>John Bonham</td>
+                            <td>18/05/2023</td>
+                            <td>Fio com mal contato</td>
+                            <td>31/05/2023</td>
+                            <td>Em conserto</td>
+                            <td>Orçamento aprovado</td>
+                            <td><a href="">Alterar</a></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>John Paul Jones</td>
+                            <td>18/05/2023</td>
+                            <td>Fio com mal contato</td>
+                            <td>31/05/2023</td>
+                            <td>Em conserto</td>
+                            <td>Orçamento aprovado</td>
+                            <td><a href="">Alterar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Javascript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+        
+</body>
+
+</html>

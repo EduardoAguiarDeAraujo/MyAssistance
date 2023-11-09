@@ -1,0 +1,26 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fcfcfc;
+}
+
+.icon-logo {
+    font-size: 30px;
+    color: rgb(4, 4, 223);
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+.icons a {
+    color: #fff;
+}
+
+.image-login {
+    width: 300px;
+}
+
+.photo img {
+    width: 60px;
+}
